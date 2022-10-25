@@ -31,7 +31,7 @@ const Header = () => {
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/courses">Courses</NavLink>
               <NavLink to="/blog">Blog</NavLink>
-              <NavLink to="/fqa">FAQ</NavLink>
+              <NavLink to="/faq">FAQ</NavLink>
             </Nav>
             <Nav>
               <ButtonGroup aria-label="Basic example">
