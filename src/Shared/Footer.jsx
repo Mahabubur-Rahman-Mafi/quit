@@ -29,9 +29,30 @@ const Footer = () => {
             </p>
           </Col>
           <Col xs={12} md={6} lg={3}>
-            <FaFacebookSquare className="fs-2 me-2"></FaFacebookSquare>
-            <FaLinkedin className="fs-2 me-2"></FaLinkedin>
-            <FaInstagramSquare className="fs-2"></FaInstagramSquare>
+            <a
+              href="https://www.facebook.com/mafi.theboss"
+              target="_blank"
+              className="footer-icon-color"
+              rel="noreferrer"
+            >
+              <FaFacebookSquare className="fs-2 footer-clicked-icon me-2"></FaFacebookSquare>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mrmafi/"
+              target="_blank"
+              className="footer-icon-color"
+              rel="noreferrer"
+            >
+              <FaLinkedin className="fs-2 footer-clicked-icon me-2"></FaLinkedin>
+            </a>
+            <a
+              href="https://www.instagram.com/m_r_mafi"
+              target="_blank"
+              className="footer-icon-color"
+              rel="noreferrer"
+            >
+              <FaInstagramSquare className="fs-2 footer-clicked-icon"></FaInstagramSquare>
+            </a>
           </Col>
         </Row>
       </Container>
