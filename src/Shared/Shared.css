@@ -17,3 +17,11 @@
     color: rgb(246, 134, 6);
     font-size: 20px;
 }
+.footer-my-name{
+    text-decoration: none;
+    color: rgb(246, 134, 6);
+}
+.footer-my-name:hover{
+    text-decoration: underline;
+    color:#121212
+}
