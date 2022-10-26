@@ -8,26 +8,35 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 
 const Registration = () => {
-  const handleswith = (event) => {
-    console.log(event.target.chcked);
+  const handleForm = (event) => {
+      event.preventDefault();
+      const form = event.target
+      const email = form.email.value
+      const name1 = form.name1.value
+      const name2 = form.name2.value
+      const name = name1 + " "+ name2
+      const password =form.password.value
+      const repassword = form.repassword.value
+      const photoURL = form.photo.value
+      console.log(email, name, password, repassword, photoURL);
   };
   return (
     <div>
       <div className="w-50 mx-auto login-design my-5">
         <h1 className="text-center mb-4">Welcome!</h1>
-        <Form>
+        <Form onSubmit={handleForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>
             <Row>
               <Col>
                 <Form.Control
                   type="text"
-                  name="name"
+                  name="name1"
                   placeholder="First name"
                 />
               </Col>
               <Col>
-                <Form.Control type="text" name="name" placeholder="Last name" />
+                <Form.Control type="text" name="name2" placeholder="Last name" />
               </Col>
             </Row>
           </Form.Group>
@@ -46,7 +55,7 @@ const Registration = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label> Re-enter Password</Form.Label>
             <Form.Control
-              name="password"
+              name="repassword"
               type="password"
               placeholder="Password"
             />

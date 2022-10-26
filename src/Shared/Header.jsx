@@ -14,9 +14,9 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
-      <Navbar collapseOnSelect expand="lg" variant="light" bg="transparent">
+      <Navbar collapseOnSelect expand="lg" variant="light" bg="transparent" className='mt-2'>
         <Container>
-          <Navbar.Brand href="#home">
+          <NavLink to='/'>
             <img
               src={logo}
               width="120"
@@ -24,7 +24,7 @@ const Header = () => {
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-          </Navbar.Brand>
+          </NavLink>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto header-menu-item">
