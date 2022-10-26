@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
 import './logRes.css'
 import { Link } from 'react-router-dom';
@@ -21,7 +20,7 @@ const Login = () => {
         <h1 className="text-center mb-4">Log in</h1>
         <Form onSubmit={handleForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control name="email" type="email" placeholder="Enter email" />
           </Form.Group>
 

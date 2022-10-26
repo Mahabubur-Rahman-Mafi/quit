@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,9 +10,13 @@ import { BsSun } from "react-icons/bs";
 import logo from '../Assest/logo.png'
 import './Shared.css'
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 
 
 const Header = () => {
+
+
+  const {user} = useContext(AuthContext)
     return (
       <Navbar collapseOnSelect expand="lg" variant="light" bg="transparent" className='mt-2'>
         <Container>
