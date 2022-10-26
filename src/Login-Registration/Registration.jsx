@@ -1,14 +1,33 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
 import "./logRes.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthProvider";
+import { useState } from "react";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Registration = () => {
+    const [pass, setPass] = useState('')
+    const [error, setError] = useState('')
+    const { createUser, googleAuthProvider } = useContext(AuthContext);
+
+    const gogleProvider = new GoogleAuthProvider()
+
+    const handleGoogleButton = () => {
+         googleAuthProvider(gogleProvider)
+           .then((result) => {
+               const user = result.user;
+               console.log(user);
+           })
+           .catch((e) => {});
+    }
+
+
   const handleForm = (event) => {
       event.preventDefault();
       const form = event.target
@@ -19,7 +38,25 @@ const Registration = () => {
       const password =form.password.value
       const repassword = form.repassword.value
       const photoURL = form.photo.value
-      console.log(email, name, password, repassword, photoURL);
+      if (password === repassword) {
+          createUser(email, password)
+            .then((result) => {
+              const user = result.user;
+                console.log(user);
+                setPass('')
+                setError('')
+                form.reset()
+            })
+              .catch((e) => {
+                const msg = e.message;
+              setError(msg)
+            });
+      }
+      else {
+          setPass('Password do not match...')
+      }
+     
+      
   };
   return (
     <div>
@@ -73,6 +110,7 @@ const Registration = () => {
             <Form.Label>Photo Url</Form.Label>
             <Form.Control name="photo" type="text" placeholder="your url" />
           </Form.Group>
+          <p className="text-danger">{pass}</p>
           <Button
             variant="outline-primary"
             type="submit"
@@ -83,6 +121,7 @@ const Registration = () => {
           <p>
             Already, Have an account? <Link to="/login">Log in</Link>
           </p>
+
           <hr></hr>
           <Row>
             <Col>
@@ -91,6 +130,7 @@ const Registration = () => {
                   variant="outline-success"
                   type="submit"
                   className="mb-2 fs-5 fw-semibold mt-2 w-100"
+                  onClick={handleGoogleButton}
                 >
                   <FaGoogle></FaGoogle> SignUp with Google
                 </Button>

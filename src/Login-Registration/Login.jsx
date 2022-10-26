@@ -4,16 +4,31 @@ import Button from "react-bootstrap/Button";
 import './logRes.css'
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../Context/AuthProvider';
+import { useState } from 'react';
 
 const Login = () => {
+  const [error, setError] = useState('')
+
+  const { userLogIn } = useContext(AuthContext);
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
-   
     const password = form.password.value;
-   
-    console.log(email, password, );
+    userLogIn(email, password)
+      .then(result => {
+        const user = result.user
+        setError('')
+        form.reset()
+      })
+      .catch(error => {
+        const msg = error.message;
+        setError(msg)
+        
+    })
+
   };
 
     return (
@@ -37,12 +52,13 @@ const Login = () => {
             className="mb-3"
             controlId="formBasicCheckbox"
           ></Form.Group>
+          <p className='text-danger'>{error}</p>
           <Button
             variant="outline-primary"
             type="submit"
             className="mb-3 px-4 mt-2"
           >
-            Submit
+            Log In
           </Button>
           <p>
             Don't Have an account? <Link to="/register">Register Here</Link>
