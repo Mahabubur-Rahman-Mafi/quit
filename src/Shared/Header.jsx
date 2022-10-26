@@ -45,7 +45,7 @@ const Header = () => {
 
               <div>
                 <img src={img} alt="" className="user-image-profile ms-3"></img>
-                <Link to='/log-in'>
+                <Link to='/login'>
                   <Button className="ms-3">Log In</Button>
                 </Link>
               </div>
