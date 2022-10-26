@@ -7,10 +7,18 @@ import Accordion from "react-bootstrap/Accordion";
 import { Col, Container, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
 const Home = () => {
+
   return (
     <div className="container my-4">
+
+
+
+
+      {/* ____ */}
       {/* carousel */}
       <Carousel>
         <Carousel.Item>
@@ -31,13 +39,10 @@ const Home = () => {
       {/* about-section */}
       <>
         <h2 className="text-center fs-1 mt-5">About</h2>
-        <div className="grid">
-          <div className="row">
+        <div className="grid ">
+          <div className="row align-items-center">
             <div className="col-12 col-lg-6">
-              <img
-                src={image3}
-                className="image-fluid w-100 mt-4 align-items-center"
-              ></img>
+              <img src={image3} className="image-fluid w-100 mt-4 "></img>
             </div>
             <div className="col-12 col-lg-6 ">
               <p className="fs-5 mt-4 ">
@@ -60,9 +65,6 @@ const Home = () => {
       </>
       {/* ____ */}
 
-      {/* courses section */}
-      <h2 className="text-center fs-1 mt-5">Courses</h2>
-      {/* ____ */}
       {/* FAQ section */}
       <div div className="w-75 mx-auto mt-5" id="fqa">
         <h2 className="text-center fs-1 mb-4">FAQ</h2>

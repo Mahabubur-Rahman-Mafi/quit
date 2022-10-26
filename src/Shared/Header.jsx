@@ -28,10 +28,10 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto header-menu-item">
-              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/">Home</NavLink>
               <NavLink to="/courses">Courses</NavLink>
               <NavLink to="/blog">Blog</NavLink>
-              <NavLink to="/faq">FAQ</NavLink>
+              <a href="home#fqa">FAQ</a>
             </Nav>
             <Nav>
               <ButtonGroup aria-label="Basic example">
