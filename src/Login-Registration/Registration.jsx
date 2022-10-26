@@ -6,6 +6,7 @@ import "./logRes.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Registration = () => {
   const handleForm = (event) => {
@@ -36,7 +37,11 @@ const Registration = () => {
                 />
               </Col>
               <Col>
-                <Form.Control type="text" name="name2" placeholder="Last name" />
+                <Form.Control
+                  type="text"
+                  name="name2"
+                  placeholder="Last name"
+                />
               </Col>
             </Row>
           </Form.Group>
@@ -68,12 +73,41 @@ const Registration = () => {
             <Form.Label>Photo Url</Form.Label>
             <Form.Control name="photo" type="text" placeholder="your url" />
           </Form.Group>
-          <Button variant="outline-primary" type="submit" className="mb-3 px-4 mt-2">
+          <Button
+            variant="outline-primary"
+            type="submit"
+            className="mb-3 px-4 mt-2"
+          >
             Register
           </Button>
           <p>
             Already, Have an account? <Link to="/login">Log in</Link>
           </p>
+          <hr></hr>
+          <Row>
+            <Col>
+              <Link>
+                <Button
+                  variant="outline-success"
+                  type="submit"
+                  className="mb-2 fs-5 fw-semibold mt-2 w-100"
+                >
+                  <FaGoogle></FaGoogle> SignUp with Google
+                </Button>
+              </Link>
+            </Col>
+            <Col>
+              <Link>
+                <Button
+                  variant="outline-dark"
+                  type="submit"
+                  className="mb-2 fs-5 fw-semibold mt-2 w-100"
+                >
+                  <FaGithub></FaGithub> SignUp with GitHub
+                </Button>
+              </Link>
+            </Col>
+          </Row>
         </Form>
       </div>
     </div>

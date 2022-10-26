@@ -18,9 +18,15 @@ const Header = () => {
 
   const {user} = useContext(AuthContext)
     return (
-      <Navbar collapseOnSelect expand="lg" variant="light" bg="transparent" className='mt-2'>
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        variant="light"
+        bg="transparent"
+        className="mt-2"
+      >
         <Container>
-          <NavLink to='/'>
+          <NavLink to="/">
             <img
               src={logo}
               width="120"
@@ -49,8 +55,13 @@ const Header = () => {
 
               <div>
                 <img src={img} alt="" className="user-image-profile ms-3"></img>
-                <Link to='/login'>
-                  <Button className="ms-3">Log In</Button>
+                <Link to="/login">
+                  <Button
+                    variant="outline-primary"
+                    className="ms-3"
+                  >
+                    Log In
+                  </Button>
                 </Link>
               </div>
             </Nav>

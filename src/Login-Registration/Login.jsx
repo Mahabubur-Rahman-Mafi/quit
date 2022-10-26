@@ -1,8 +1,9 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
 import './logRes.css'
 import { Link } from 'react-router-dom';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
   const handleForm = (event) => {
@@ -26,7 +27,11 @@ const Login = () => {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control name="password" type="password" placeholder="Password" />
+            <Form.Control
+              name="password"
+              type="password"
+              placeholder="Password"
+            />
           </Form.Group>
           <Form.Group
             className="mb-3"
@@ -42,6 +47,32 @@ const Login = () => {
           <p>
             Don't Have an account? <Link to="/register">Register Here</Link>
           </p>
+
+          <hr></hr>
+          <Row>
+            <Col>
+              <Link>
+                <Button
+                  variant="outline-success"
+                  type="submit"
+                  className="mb-2 fs-5 fw-semibold mt-2 w-100"
+                >
+                  <FaGoogle></FaGoogle> Login with Google
+                </Button>
+              </Link>
+            </Col>
+            <Col>
+              <Link>
+                <Button
+                  variant="outline-dark"
+                  type="submit"
+                  className="mb-2 fs-5 fw-semibold mt-2 w-100"
+                >
+                  <FaGithub></FaGithub> Login with GitHub
+                </Button>
+              </Link>
+            </Col>
+          </Row>
         </Form>
       </div>
     );
