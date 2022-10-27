@@ -2,16 +2,27 @@ import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
 import './logRes.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import { useState } from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-  const [error, setError] = useState('')
 
-  const { userLogIn } = useContext(AuthContext);
+  const { userLogIn, googleAuthProvider } = useContext(AuthContext);
+
+
+  const [error, setError] = useState('')
+  const nevigate = useNavigate()
+  const location = useLocation()
+  const gogleProvider = new GoogleAuthProvider();
+
+  const from = location.state?.from?.pathname || '/'
+  
+
+
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -22,14 +33,24 @@ const Login = () => {
         const user = result.user
         setError('')
         form.reset()
+        nevigate(from,{replace:true})
       })
       .catch(error => {
         const msg = error.message;
         setError(msg)
         
-    })
+      })
 
   };
+
+   const handleGoogleButton = () => {
+     googleAuthProvider(gogleProvider)
+       .then((result) => {
+         const user = result.user;
+         console.log(user);
+       })
+       .catch((e) => {});
+   };
 
     return (
       <div className="w-50 mx-auto login-design my-5">
@@ -52,7 +73,7 @@ const Login = () => {
             className="mb-3"
             controlId="formBasicCheckbox"
           ></Form.Group>
-          <p className='text-danger'>{error}</p>
+          <p className="text-danger">{error}</p>
           <Button
             variant="outline-primary"
             type="submit"
@@ -72,8 +93,9 @@ const Login = () => {
                   variant="outline-success"
                   type="submit"
                   className="mb-2 fs-5 fw-semibold mt-2 w-100"
+                  onClick={handleGoogleButton}
                 >
-                  <FaGoogle></FaGoogle> Login with Google
+                  <FaGoogle ></FaGoogle> Go with Google
                 </Button>
               </Link>
             </Col>

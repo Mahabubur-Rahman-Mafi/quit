@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import "./logRes.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthProvider";
@@ -15,6 +15,12 @@ const Registration = () => {
     const [pass, setPass] = useState('')
     const [error, setError] = useState('')
     const { createUser, googleAuthProvider } = useContext(AuthContext);
+
+
+    const nevigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const gogleProvider = new GoogleAuthProvider()
 
@@ -46,6 +52,7 @@ const Registration = () => {
                 setPass('')
                 setError('')
                 form.reset()
+                nevigate(from, { replace: true });
             })
               .catch((e) => {
                 const msg = e.message;
@@ -111,6 +118,7 @@ const Registration = () => {
             <Form.Control name="photo" type="text" placeholder="your url" />
           </Form.Group>
           <p className="text-danger">{pass}</p>
+          <p className="text-danger">{error}</p>
           <Button
             variant="outline-primary"
             type="submit"
