@@ -80,7 +80,7 @@ const Details = () => {
             </Link>
           </Col>
           <Col sm={6}>
-            <Pdf targetRef={ref} filename="code-example.pdf">
+            <Pdf targetRef={ref} filename={title}>
               {
                 ({ toPdf }) =>
                 <Button
