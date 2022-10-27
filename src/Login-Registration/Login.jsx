@@ -95,7 +95,7 @@ const Login = () => {
                   className="mb-2 fs-5 fw-semibold mt-2 w-100"
                   onClick={handleGoogleButton}
                 >
-                  <FaGoogle ></FaGoogle> Go with Google
+                  <FaGoogle className="mb-0"></FaGoogle> Go with Google
                 </Button>
               </Link>
             </Col>
@@ -106,7 +106,7 @@ const Login = () => {
                   type="submit"
                   className="mb-2 fs-5 fw-semibold mt-2 w-100"
                 >
-                  <FaGithub></FaGithub> Login with GitHub
+                  <FaGithub className="mb-0"></FaGithub> Login with GitHub
                 </Button>
               </Link>
             </Col>

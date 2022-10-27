@@ -13,7 +13,7 @@ const Courses = () => {
         <Row>
           <Col xs={12} md={5} lg={4}>
             {courses.map((course) => (
-              <LeftSide key={course.id} course={course}></LeftSide>
+              <LeftSide key={course._id} course={course}></LeftSide>
             ))}
           </Col>
           <Col xs={12} md={7} lg={8}>

@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <Error></Error>,
+    // errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -37,8 +37,15 @@ export const router = createBrowserRouter([
             loader: ({ params }) =>
               fetch(`http://localhost:5000/courses/${params.id}`),
           },
+          {
+            path: ":id/:url",
+            element: <Details></Details>,
+            loader: ({ params }) =>
+              fetch(`http://localhost:5000/courses/${params.url}`),
+          },
         ],
       },
+
       {
         path: "blog",
         element: <Blog></Blog>,

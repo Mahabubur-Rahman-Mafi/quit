@@ -140,7 +140,7 @@ const Registration = () => {
                   className="mb-2 fs-5 fw-semibold mt-2 w-100"
                   onClick={handleGoogleButton}
                 >
-                  <FaGoogle></FaGoogle> SignUp with Google
+                  <FaGoogle className="mb-0"></FaGoogle> SignUp with Google
                 </Button>
               </Link>
             </Col>
@@ -151,7 +151,7 @@ const Registration = () => {
                   type="submit"
                   className="mb-2 fs-5 fw-semibold mt-2 w-100"
                 >
-                  <FaGithub></FaGithub> SignUp with GitHub
+                  <FaGithub className="mb-0"></FaGithub> SignUp with GitHub
                 </Button>
               </Link>
             </Col>

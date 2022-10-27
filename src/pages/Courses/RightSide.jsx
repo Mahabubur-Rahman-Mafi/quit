@@ -27,7 +27,7 @@ const RightSide = () => {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{course_Details.course}</Card.Text>
-            <Link to={`${course.urlId}`}>
+            <Link to={`${course._id}`}>
               <Button variant="primary">View More</Button>
             </Link>
           </Card.Body>
