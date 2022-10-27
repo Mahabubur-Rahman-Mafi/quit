@@ -3,6 +3,7 @@ import { Col, Image, Row } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
 
 const Details = () => {
     const course = useLoaderData()
@@ -13,14 +14,14 @@ const Details = () => {
       duration,
       image_url,
       instructor,
-      others_info,
       rating,
       title,
       total_Student,
     } = course;
-    console.log(course);
+
+  const ref = React.createRef();
     return (
-      <div className="p-2 manage-courses">
+      <div className="p-2 manage-courses" ref={ref}>
         <h1 className="mb-4">{title}</h1>
         <Image src={image_url} style={{ width: "100%" }}></Image>
         <h3 className="mt-4 mb-3">Course Details</h3>
@@ -67,18 +68,30 @@ const Details = () => {
           <h5 className="mt-2 mb-2">{instructor.name}</h5>
           <p className="">{instructor?.about}</p>
         </div>
-        <Row className='mt-4'>
+        <Row className="mt-4">
           <Col sm={6}>
             <Link to="/enroll">
-              <Button variant="outline-success" className="w-100 fw-semibold py-2">
+              <Button
+                variant="outline-success"
+                className="w-100 fw-semibold py-2"
+              >
                 Get premium access
               </Button>
             </Link>
           </Col>
           <Col sm={6}>
-              <Button variant="outline-info" className="w-100 fw-semibold py-2">
-                View Details
-              </Button>
+            <Pdf targetRef={ref} filename="code-example.pdf">
+              {
+                ({ toPdf }) =>
+                <Button
+                  onClick={toPdf}
+                  variant="outline-info"
+                  className="w-100 fw-semibold py-2"
+                >
+                  Download Details
+                  </Button>
+              }
+            </Pdf>
           </Col>
         </Row>
       </div>
