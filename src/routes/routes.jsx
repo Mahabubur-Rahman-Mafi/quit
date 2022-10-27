@@ -9,7 +9,7 @@ import Home from "../pages/Home/Home";
 import Details from "../pages/Courses/Details";
 import FAQ from "../pages/FAQ/FAQ";
 import Error from "../pages/Error/Error";
-import Enroll from "../pages/Enroll";
+import Enroll from "../Login-Registration/Enroll";
 import PrivateRoute from '../routes/PrivateRoute'
 
 
@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    // errorElement: <Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -31,19 +31,19 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://edu-server-site.vercel.app/courses"),
         children: [
           {
             path: "/courses/:id",
             element: <RightSide></RightSide>,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/courses/${params.id}`),
+              fetch(`https://edu-server-site.vercel.app/courses/${params.id}`),
           },
           {
             path: ":id/:url",
             element: <Details></Details>,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/courses/${params.url}`),
+              fetch(`https://edu-server-site.vercel.app/courses/${params.url}`),
           },
         ],
       },

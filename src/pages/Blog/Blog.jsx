@@ -11,7 +11,7 @@ const Blog = () => {
       <div>
         <Container>
           {/* what is `cors`? */}
-          <Card>
+          <Card className="mb-4 mt-5">
             <Card.Img variant="top" src={cors} />
             <Card.Body>
               <Card.Title>what is `cors`?</Card.Title>
@@ -30,7 +30,7 @@ const Blog = () => {
           </Card>
           {/* Why are you using `firebase`? What other options do you have to 
            implement authentication? */}
-          <Card>
+          <Card className="mb-4">
             <Card.Img variant="top" src={fb} />
             <Card.Body>
               <Card.Title>
@@ -50,7 +50,7 @@ const Blog = () => {
             </Card.Body>
           </Card>
           {/* How does the private route work? */}
-          <Card>
+          <Card className="mb-4">
             <Card.Img variant="top" src={pri} />
             <Card.Body>
               <Card.Title>How does the private route work?</Card.Title>
@@ -64,7 +64,7 @@ const Blog = () => {
             </Card.Body>
           </Card>
           {/* What is Node? How does Node work? */}
-          <Card>
+          <Card className="mb-5">
             <Card.Img variant="top" src={nd} />
             <Card.Body>
               <Card.Title>What is Node? How does Node work?</Card.Title>

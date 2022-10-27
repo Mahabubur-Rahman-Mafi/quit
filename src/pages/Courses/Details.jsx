@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col, Image, Row } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 
@@ -72,7 +71,7 @@ const Details = () => {
           <Col sm={6}>
             <Link to="/enroll">
               <Button variant="outline-success" className="w-100 fw-semibold py-2">
-                Enroll Now
+                Get premium access
               </Button>
             </Link>
           </Col>

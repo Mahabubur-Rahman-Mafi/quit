@@ -80,6 +80,7 @@ const Header = () => {
                       roundedCircle
                       alt=""
                       className="user-image-profile ms-3"
+                      title={user?.dispayName}
                     ></Image>
                   ) : (
                     <FaUser></FaUser>

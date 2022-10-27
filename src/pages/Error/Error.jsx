@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "react-bootstrap";
-import './Error.css'
+
 
 const Error = () => {
     return (
       <div>
-        <div class="main-error-page">
-          <svg
+        <div class="text-center">
+          <svg className='my-5'
             xmlns="http://www.w3.org/2000/svg"
             width="auto"
             height="290"
@@ -311,22 +311,24 @@ const Error = () => {
             </g>
           </svg>
 
-          <h1 class="error-title">
+          <h1 class="error-title text-center">
             Woops! <br />
             Something went wrong :(
           </h1>
-          <h2 class="error-subtitle">
+          <h2 class="error-subtitle text-center mb-3">
             Have you tried turning it off and on again?
           </h2>
-          <Link to="/home">
-            {" "}
-            <Button
-              variant="outline-primary"
-              className="fs-6 fw-bold border-info px-4 py-2"
-            >
-              Go to Home
-            </Button>
-          </Link>
+          <div className="text center">
+            <Link to="/home">
+              {" "}
+              <Button
+                variant="outline-primary"
+                className="fs-6 fw-bold border-info px-4 py-2 text-center"
+              >
+                Go to Home
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     );
