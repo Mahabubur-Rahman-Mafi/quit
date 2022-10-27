@@ -46,7 +46,9 @@ const userLogIn = (email, password) => {
 const logOutUser = () => {
   setLoader(true);
   return signOut(auth);
-};
+  };
+  
+ 
 
     const authInfo = {
          user,

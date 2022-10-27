@@ -7,7 +7,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import { useState } from 'react';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
@@ -15,11 +15,15 @@ const Login = () => {
 
 
   const [error, setError] = useState('')
-  const nevigate = useNavigate()
+  const navigate = useNavigate()
   const location = useLocation()
-  const gogleProvider = new GoogleAuthProvider();
 
-  const from = location.state?.from?.pathname || '/'
+
+  const gogleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+
+  const from = location.state?.from?.pathname || "/";
   
 
 
@@ -33,7 +37,7 @@ const Login = () => {
         const user = result.user
         setError('')
         form.reset()
-        nevigate(from,{replace:true})
+          navigate(from, { replace: true });
       })
       .catch(error => {
         const msg = error.message;
@@ -48,9 +52,20 @@ const Login = () => {
        .then((result) => {
          const user = result.user;
          console.log(user);
+         navigate(from, { replace: true });
        })
        .catch((e) => {});
-   };
+  };
+  const handleGithub = () => {
+    console.log("github");
+    googleAuthProvider(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((e) => {});
+  };
 
     return (
       <div className="w-50 mx-auto login-design my-5">
@@ -105,6 +120,7 @@ const Login = () => {
                   variant="outline-dark"
                   type="submit"
                   className="mb-2 fs-5 fw-semibold mt-2 w-100"
+                  onClick={handleGithub}
                 >
                   <FaGithub className="mb-0"></FaGithub> Login with GitHub
                 </Button>

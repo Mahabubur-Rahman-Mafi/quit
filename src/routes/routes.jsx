@@ -9,6 +9,8 @@ import Home from "../pages/Home/Home";
 import Details from "../pages/Courses/Details";
 import FAQ from "../pages/FAQ/FAQ";
 import Error from "../pages/Error/Error";
+import Enroll from "../pages/Enroll";
+import PrivateRoute from '../routes/PrivateRoute'
 
 
 
@@ -53,6 +55,14 @@ export const router = createBrowserRouter([
       {
         path: "faq",
         element: <FAQ></FAQ>,
+      },
+      {
+        path: "enroll",
+        element: (
+          <PrivateRoute>
+            <Enroll></Enroll>
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",

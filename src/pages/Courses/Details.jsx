@@ -68,12 +68,18 @@ const Details = () => {
           <h5 className="mt-2 mb-2">{instructor.name}</h5>
           <p className="">{instructor?.about}</p>
         </div>
-        <Row >
+        <Row className='mt-4'>
           <Col sm={6}>
-            <Link to='/enroll'><Button >Enroll Now</Button></Link>
+            <Link to="/enroll">
+              <Button variant="outline-success" className="w-100 fw-semibold py-2">
+                Enroll Now
+              </Button>
+            </Link>
           </Col>
           <Col sm={6}>
-            <Link></Link>
+              <Button variant="outline-info" className="w-100 fw-semibold py-2">
+                View Details
+              </Button>
           </Col>
         </Row>
       </div>
